@@ -1,1 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+<!--   
+   <context:component-scan base-package="com.voyage.services.*" />
+    <context:annotation-config/> -->
+
+<bean id="vdao" class="com.voyage.daos.DAOVoyageur"/>
+
+
+<bean id="voyageur1" class="com.voyage.entities.Voyageur">
+	<property name="civilite" value="Monsieur"/>
+	<property  name="nom" value="Wayne"/>
+	<property  name="prenom" value="Bruce"/>
+	<property  name="email" value="bwayne@wayne.gc"/>
+	<property name="myAdresse"> <ref bean="adresse1"/></property>
+	<property  name="pieceIdentite" value="987653"/>
+	<property  name="age" value="38"/>
+</bean>
+
+<bean id="adresse1" class="com.voyage.entities.Adresse">
+	<property name="rue" value="Wayne Manor"/>
+	<property name="ville" value="Gotham"/>
+	<property name="codePostal" value="10543"/>
+	<property name="pays" value="USA"/>
+</bean>
+
+</beans>

@@ -24,6 +24,27 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- <param-value>com.lip6.services, com.lip6.daos</param-value> -->
-		<param-value>com.lip6.configuration</param-value>
+		<param-value>com.voyage.configuration</param-value>
 	</context-param> 
+	
+	 <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.voyage.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddVoyageurServlet</display-name>
+    <servlet-name>AddVoyageurServlet</servlet-name>
+    <servlet-class>com.voyage.servlets.AddVoyageurServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddVoyageurServlet</servlet-name>
+    <url-pattern>/AddVoyageurServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
