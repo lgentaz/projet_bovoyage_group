@@ -10,7 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
-@Table
+//@Table single inherited from personne
 @DiscriminatorValue("CLIENT")
 public class Client  extends Personne{
 	

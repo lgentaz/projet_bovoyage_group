@@ -1,6 +1,7 @@
 package com.voyage.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -23,9 +24,9 @@ public class Voyage {
 
 	private String destination;
 	@OneToMany(mappedBy = "voyage",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
-	private ArrayList<Reservation>  reservations;
+	private List<Reservation>  reservations;
 	@OneToMany(mappedBy = "voyage",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
-	private ArrayList<Prestation> prestations;
+	private List<Prestation> prestations;
 	public enum Statut {
 		Disponible,
 		Clos;
