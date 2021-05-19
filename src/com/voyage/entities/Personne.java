@@ -20,8 +20,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Table
 @Inheritance
 @DiscriminatorColumn(name="Pers_Type")
-
-public class Personne {
+public abstract class Personne {
 	@Id
 	@GeneratedValue
 	private long idPersonne;
@@ -32,8 +31,8 @@ public class Personne {
     
     @Autowired
 	@Qualifier("adresse1")
- @OneToOne(cascade=CascadeType.PERSIST)
- @JoinColumn(name="ADR_ID")
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="ADR_ID")
 	private Adresse  myAdresse;
     
 
@@ -47,8 +46,7 @@ public class Personne {
 		this.email = email;
 		this.myAdresse = myAdresse;
 	}
-    public Personne()
-    {}
+    public Personne(){}
 	/**
      * Getter/Setter
      */
