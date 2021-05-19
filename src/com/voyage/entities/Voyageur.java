@@ -49,7 +49,7 @@ public class Voyageur extends Personne {
 		this.age = age;
 	}
 	public Voyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, List<Reservation> reservations) {
+		int age, List<Reservation> reservations) {
 		super(civilite, nom, prenom, email, myAdresse);
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
@@ -74,8 +74,6 @@ public class Voyageur extends Personne {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-	
 
 	public List<Reservation> getReservations() {
 		return Reservations;
