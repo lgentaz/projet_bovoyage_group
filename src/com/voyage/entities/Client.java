@@ -19,17 +19,28 @@ public class Client extends Personne implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3921599594408962074L;
+	private static final long serialVersionUID = 7517880756375269875L;
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = -3921599594408962074L;
 	@OneToMany(mappedBy = "client",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
 	private Collection<Reservation> reservations;
-	private MoyenPaiement moyenPaiement;
+	//private MoyenPaiement moyenPaiement;
+	private String moyenPaiement;
 	
 	public Client() {
 		super();
 	}
 	
-	public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
+	/*public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
 			Collection<Reservation> reservations, MoyenPaiement moyenPaiement) {
+		super(civilite, nom, prenom, email, myAdresse);
+		this.reservations = reservations;
+		this.moyenPaiement = moyenPaiement;
+	}*/
+	public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
+			Collection<Reservation> reservations, String moyenPaiement) {
 		super(civilite, nom, prenom, email, myAdresse);
 		this.reservations = reservations;
 		this.moyenPaiement = moyenPaiement;
@@ -47,14 +58,20 @@ public class Client extends Personne implements Serializable{
 		this.reservations.add(reservation);
 	}
 
-	public MoyenPaiement getMoyenPaiement() {
+	/*public MoyenPaiement getMoyenPaiement() {
 		return moyenPaiement;
 	}
 
 	public void setMoyenPaiement(MoyenPaiement moyenPaiement) {
 		this.moyenPaiement = moyenPaiement;
+	}*/
+	
+	public String getMoyenPaiement() {
+		return moyenPaiement;
 	}
-	
-	
+
+	public void setMoyenPaiement(String moyenPaiement) {
+		this.moyenPaiement = moyenPaiement;
+	}
 
 }

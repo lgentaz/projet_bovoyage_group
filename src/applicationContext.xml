@@ -20,7 +20,6 @@
 
 <bean id="vdao" class="com.voyage.daos.DAOVoyageur"/>
 
-
 <bean id="voyageur1" class="com.voyage.entities.Voyageur">
 	<property name="civilite" value="Monsieur"/>
 	<property  name="nom" value="Wayne"/>
@@ -36,6 +35,26 @@
 	<property name="ville" value="Gotham"/>
 	<property name="codePostal" value="10543"/>
 	<property name="pays" value="USA"/>
+</bean>
+
+<bean id="reservation1" class="com.voyage.entities.Reservation">
+	<property name="prixTotal" value="499.99"/>
+	<property name="client"><ref bean="client1"/></property>
+	<property name="voyage"><ref bean="voyage1"/></property>
+	<property name="listeVoyageur">
+	    <list>
+	    	<ref bean="voyageur1"/>
+	    </list>
+  </property>
+</bean>
+
+<bean id="client1" class="com.voyage.entities.Voyageur">
+	<property name="civilite" value="Monsieur"/>
+	<property  name="nom" value="Wayne"/>
+	<property  name="prenom" value="Bruce"/>
+	<property  name="email" value="bwayne@wayne.gc"/>
+	<property name="myAdresse"> <ref bean="adresse1"/></property>
+	<property  name="moyenPaiement" value="CB"/>
 </bean>
 
 </beans>

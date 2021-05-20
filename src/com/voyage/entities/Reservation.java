@@ -56,12 +56,11 @@ public class Reservation implements Serializable {
 	public Reservation() {
 	}	
 	
-	public Reservation(Collection<Voyageur> listeVoyageur, double prixTotal,
-			EtatReservation etatReservation, Client client, Voyage voyage) {
+	public Reservation(Collection<Voyageur> listeVoyageur, double prixTotal, Client client, Voyage voyage) {
 		this.listeVoyageur = listeVoyageur;
 		this.numeroReservation = idReservation;
 		this.prixTotal = prixTotal;
-		this.etatReservation = etatReservation;
+		this.etatReservation = EtatReservation.EnCours;
 		this.client = client;
 		this.voyage = voyage;
 	}
