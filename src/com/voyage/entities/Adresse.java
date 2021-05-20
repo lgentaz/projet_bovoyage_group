@@ -1,5 +1,7 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Adresse {
+public class Adresse implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4746579738743642231L;
+
 	@Id
 	@GeneratedValue
 	private long IdAdresse;

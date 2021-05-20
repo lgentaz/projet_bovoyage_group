@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.DiscriminatorColumn;
@@ -17,8 +18,12 @@ import javax.persistence.Table;
 @Table
 @Inheritance
 @DiscriminatorColumn(name="Presta_Type")
-public abstract class Prestation {
+public abstract class Prestation implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5284310376353843642L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Date dateDepart;

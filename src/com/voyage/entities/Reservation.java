@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,7 +19,12 @@ import com.voyage.entities.Voyageur;
 
 @Entity
 @Table
-public class Reservation {
+public class Reservation implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 495778063949816443L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

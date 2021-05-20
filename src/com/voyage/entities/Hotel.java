@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
@@ -10,8 +11,12 @@ import javax.persistence.OneToOne;
 @Entity
 //@Table single inherited from personne
 @DiscriminatorValue("Hotel")
-public class Hotel  extends Prestation{
+public class Hotel extends Prestation implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3613084992247548702L;
 	private double prixChambre;
     @OneToOne
     @JoinColumn(name="idAdresse")

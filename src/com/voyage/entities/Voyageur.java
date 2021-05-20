@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,12 @@ import com.voyage.entities.Reservation;
 @Entity
 //@Table single inherited from personne
 @DiscriminatorValue("VOYAGEUR")
-public class Voyageur extends Personne {
+public class Voyageur extends Personne implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2996738032361801269L;
 	//private long voyageurId; inherited personne
 	
 	private String pieceIdentite;

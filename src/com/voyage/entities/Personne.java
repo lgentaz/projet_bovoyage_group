@@ -1,5 +1,7 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -20,7 +22,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Table
 @Inheritance
 @DiscriminatorColumn(name="Pers_Type")
-public abstract class Personne {
+public abstract class Personne implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2947968825926141100L;
 	@Id
 	@GeneratedValue
 	private long idPersonne;

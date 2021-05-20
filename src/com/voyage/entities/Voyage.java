@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table
-public class Voyage {
+public class Voyage implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7369471874677447990L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idVoyage;

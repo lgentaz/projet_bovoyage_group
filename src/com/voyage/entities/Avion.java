@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
@@ -8,8 +9,12 @@ import javax.persistence.Entity;
 @Entity
 //@Table single inherited from personne
 @DiscriminatorValue("Avion")
-public class Avion extends Prestation{
+public class Avion extends Prestation implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6464958753016860640L;
 	private String aeroport;
 	private String compagnie;
 	

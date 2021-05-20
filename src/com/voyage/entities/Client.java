@@ -1,5 +1,6 @@
 package com.voyage.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -13,8 +14,12 @@ import javax.persistence.Table;
 @Entity
 //@Table single inherited from personne
 @DiscriminatorValue("CLIENT")
-public class Client  extends Personne{
+public class Client extends Personne implements Serializable{
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3921599594408962074L;
 	@OneToMany(mappedBy = "client",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
 	private Collection<Reservation> reservations;
 	private MoyenPaiement moyenPaiement;
