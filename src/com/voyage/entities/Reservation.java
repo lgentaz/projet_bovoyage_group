@@ -21,28 +21,25 @@ import com.voyage.entities.Voyageur;
 @Table
 public class Reservation implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 495778063949816443L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idReservation;
 	
-	@ManyToMany
-	@JoinTable(name="reservationvoyageur",
+	@ManyToMany(cascade=CascadeType.MERGE)
+	@JoinTable(name="ReservationVoyageur",
 	   joinColumns= @JoinColumn(name="idReservation", referencedColumnName="idReservation"),
-	   inverseJoinColumns=@JoinColumn(name="idPersonne", referencedColumnName="idPersonne"))
+	   inverseJoinColumns=@JoinColumn(name="idVoyageur", referencedColumnName="idPersonne"))
 	private Collection<Voyageur> listeVoyageur = new ArrayList <Voyageur>();
 			
 	private long numeroReservation;
 	private double prixTotal;
 	private EtatReservation etatReservation;
-	@ManyToOne
-	@JoinColumn(name="idPersonne")
+	@ManyToOne(cascade=CascadeType.MERGE)
+	@JoinColumn(name="idClient")
 	private Client client;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="idVoyage")
 	private Voyage voyage;
 	

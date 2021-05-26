@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.voyage.configuration.AppConfiguration;
 import com.voyage.daos.*;
 import com.voyage.entities.*;
+import com.voyage.entities.Reservation.EtatReservation;
 
 public class MainProgram {
 
@@ -20,6 +21,8 @@ public class MainProgram {
 		Client c = (Client) context.getBean("client1");
 		c.setAdresse(a);
 		Reservation r = (Reservation) context.getBean("reservation1");
+		r.setEtatReservation(EtatReservation.EnCours);
+		r.setNumeroReservation(r.getIdReservation());
 
 		
 		IDAOAdresse adao = (IDAOAdresse) context.getBean("adao");

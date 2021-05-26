@@ -7,13 +7,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 import com.voyage.entities.Adresse;
 import com.voyage.entities.Reservation;
@@ -35,7 +32,7 @@ public class Voyageur extends Personne implements Serializable {
 	@ManyToMany (cascade=CascadeType.MERGE)
 	@JoinTable (name="ReservationVoyageur",
 	joinColumns=@JoinColumn(name="idVoyageur", referencedColumnName="idPersonne"),
-	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="idReservation"))
+	inverseJoinColumns=@JoinColumn(name="idReservation", referencedColumnName="idReservation"))
 	private List<Reservation> Reservations = new ArrayList <Reservation>(0);
 	
     /**
