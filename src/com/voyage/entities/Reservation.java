@@ -33,17 +33,17 @@ public class Reservation implements Serializable {
 	@ManyToMany
 	@JoinTable(name="reservationvoyageur",
 	   joinColumns= @JoinColumn(name="idReservation", referencedColumnName="idReservation"),
-	   inverseJoinColumns=@JoinColumn(name="idVoyageur", referencedColumnName="idVoyageur"))
+	   inverseJoinColumns=@JoinColumn(name="idPersonne", referencedColumnName="idPersonne"))
 	private Collection<Voyageur> listeVoyageur = new ArrayList <Voyageur>();
 			
 	private long numeroReservation;
 	private double prixTotal;
 	private EtatReservation etatReservation;
 	@ManyToOne
-	@JoinColumn(name="code-client")
+	@JoinColumn(name="idPersonne")
 	private Client client;
 	@ManyToOne
-	@JoinColumn(name="code-voyage")
+	@JoinColumn(name="idVoyage")
 	private Voyage voyage;
 	
 	public enum EtatReservation {

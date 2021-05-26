@@ -12,17 +12,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-//@Table single inherited from personne
-@DiscriminatorValue("CLIENT")
+@DiscriminatorValue("Client")
 public class Client extends Personne implements Serializable{
 		
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7517880756375269875L;
-	/**
-	 * 
-	 */
+ 
 	//private static final long serialVersionUID = -3921599594408962074L;
 	@OneToMany(mappedBy = "client",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
 	private Collection<Reservation> reservations;
@@ -33,16 +30,16 @@ public class Client extends Personne implements Serializable{
 		super();
 	}
 	
-	/*public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
+	/**public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
 			Collection<Reservation> reservations, MoyenPaiement moyenPaiement) {
 		super(civilite, nom, prenom, email, myAdresse);
 		this.reservations = reservations;
 		this.moyenPaiement = moyenPaiement;
 	}*/
 	public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
-			Collection<Reservation> reservations, String moyenPaiement) {
+			Reservation reservation, String moyenPaiement) {
 		super(civilite, nom, prenom, email, myAdresse);
-		this.reservations = reservations;
+		this.reservations.add(reservation);
 		this.moyenPaiement = moyenPaiement;
 	}
 
@@ -58,7 +55,7 @@ public class Client extends Personne implements Serializable{
 		this.reservations.add(reservation);
 	}
 
-	/*public MoyenPaiement getMoyenPaiement() {
+	/**public MoyenPaiement getMoyenPaiement() {
 		return moyenPaiement;
 	}
 

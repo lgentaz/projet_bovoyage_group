@@ -9,14 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-//@Table single inherited from personne
 @DiscriminatorValue("Hotel")
 public class Hotel extends Prestation implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3613084992247548702L;
+	private static final long serialVersionUID = -2663385758959859309L;
+	
 	private double prixChambre;
     @OneToOne
     @JoinColumn(name="idAdresse")
@@ -37,9 +34,9 @@ public class Hotel extends Prestation implements Serializable{
 		Suite;
 	}
 	
-    public Hotel(Date dateDepart, Date dateArrivee, double prixHT, Voyage voyage, double prixChambre, Adresse adresse,
+    public Hotel(String dateDepart, String dateArrivee, double prixHT, double prixChambre, Adresse adresse,
 			Formule formule, TypeChambre typeChambre) {
-		super(dateDepart, dateArrivee, prixHT, voyage);
+		super(dateDepart, dateArrivee, prixHT);
 		this.prixChambre = prixChambre;
 		this.adresse = adresse;
 		this.formule = formule;

@@ -37,20 +37,20 @@ public abstract class Personne implements Serializable {
     
     @Autowired
 	@Qualifier("adresse1")
-    @OneToOne(cascade=CascadeType.PERSIST)
+    @OneToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="ADR_ID")
-	private Adresse  myAdresse;
+	private Adresse  adresse;
     
 
     /**
      * Default constructor
      */
-    public Personne(String civilite, String nom, String prenom, String email, Adresse myAdresse) {
+    public Personne(String civilite, String nom, String prenom, String email, Adresse adresse) {
 		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.myAdresse = myAdresse;
+		this.adresse = adresse;
 	}
     public Personne(){}
 	/**
@@ -80,11 +80,11 @@ public abstract class Personne implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Adresse getMyAdresse() {
-		return myAdresse;
+	public Adresse getAdresse() {
+		return adresse;
 	}
-	public void setMyAdresse(Adresse myAdresse) {
-		this.myAdresse = myAdresse;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	public long getPersonneId() {
 		return idPersonne;

@@ -5,17 +5,16 @@ import javax.persistence.EntityTransaction;
 
 import org.springframework.stereotype.Repository;
 
-import com.voyage.entities.Voyage;
-import com.voyage.entities.Voyageur;
+import com.voyage.entities.Prestation;
 import com.voyage.util.JpaUtil;
 
-@Repository("daoVoyage")
-public class DAOVoyage implements IDAOVoyage{
+@Repository("daoPrestation")
+public class DAOPrestation implements IDAOPrestation{
 	
 	boolean success=false;
 
 	@Override
-	public boolean addVoyage(Voyage v) {
+	public boolean addPrestation(Prestation p) {
 		try {
 			EntityManager em=JpaUtil.getEmf().createEntityManager();
 			
@@ -28,7 +27,7 @@ public class DAOVoyage implements IDAOVoyage{
 			
 			
 			// 4 : Persistance Objet/Relationnel : cr�ation d'un enregistrement en base
-			em.persist(v);
+			em.persist(p);
 			
 			// 5 : Fermeture transaction 
 			tx.commit();

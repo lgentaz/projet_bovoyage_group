@@ -11,14 +11,12 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Adresse implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 4746579738743642231L;
 
 	@Id
 	@GeneratedValue
-	private long IdAdresse;
+	private long idAdresse;
 	
 	private String rue;
 	private String ville;
@@ -68,11 +66,11 @@ public class Adresse implements Serializable{
 	}
 
 	public long getAdresseId() {
-		return IdAdresse;
+		return idAdresse;
 	}
 
 	public void setAdresseId(long adresseId) {
-		this.IdAdresse = adresseId;
+		this.idAdresse = adresseId;
 	}
 
 	@Override

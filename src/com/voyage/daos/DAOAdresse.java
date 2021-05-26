@@ -5,15 +5,13 @@ import javax.persistence.EntityTransaction;
 
 import org.springframework.stereotype.Repository;
 
-
+import com.voyage.entities.Adresse;
 import com.voyage.util.JpaUtil;
-import com.voyage.entities.Reservation;
 
-@Repository("daoReservation")
-public class DAOReservation implements IDAOReservation {
-	
+@Repository("daoAdresse")
+public class DAOAdresse implements IDAOAdresse{
 	@Override
-	public boolean addReservation(Reservation r) {
+	public boolean addAdresse(Adresse a) {
 
 	    boolean success=false;
 
@@ -25,7 +23,7 @@ public class DAOReservation implements IDAOReservation {
 		//Reservation res = new Reservation();		
 
 		//em.persist(res);
-		em.persist(r);
+		em.persist(a);
 
 		tx.commit();
 

@@ -19,23 +19,22 @@ import com.voyage.entities.Adresse;
 import com.voyage.entities.Reservation;
 
 @Entity
-//@Table single inherited from personne
-@DiscriminatorValue("VOYAGEUR")
+@DiscriminatorValue("Voyageur")
 public class Voyageur extends Personne implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2996738032361801269L;
-	//private long voyageurId; inherited personne
+
 	
 	private String pieceIdentite;
 	private int age;
 	
 	
-	@ManyToMany (cascade=CascadeType.ALL)
+	@ManyToMany (cascade=CascadeType.MERGE)
 	@JoinTable (name="ReservationVoyageur",
-	joinColumns=@JoinColumn(name="voyageurId"),
+	joinColumns=@JoinColumn(name="idVoyageur", referencedColumnName="idPersonne"),
 	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="idReservation"))
 	private List<Reservation> Reservations = new ArrayList <Reservation>(0);
 	

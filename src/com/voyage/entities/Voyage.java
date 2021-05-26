@@ -15,37 +15,29 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Voyage implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7369471874677447990L;
+
+	private static final long serialVersionUID = 639545271601960442L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idVoyage;
 	
 	private long numeroVoyage;
-	private Statut statut;
+	private boolean disponible;
 	private double prix;
 	private String destination;
 	
-	@OneToMany(mappedBy = "voyage",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "voyage",cascade= CascadeType.MERGE,fetch = FetchType.LAZY)
 	private List<Reservation>  reservations;
 	
-	@OneToMany(mappedBy = "voyage",cascade= CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "voyage",cascade= CascadeType.MERGE,fetch = FetchType.LAZY)
 	private List<Prestation> prestations;
 	
-	public enum Statut {
-		Disponible,
-		Clos;
-	}
 
-	public Voyage(Statut statut, double prix, String destination, List<Reservation> reservations,
-			List<Prestation> prestations) {
-		this.statut = statut;
+	public Voyage(double prix, String destination, List<Prestation> prestations) {
+		this.disponible = true;
 		this.prix = prix;
 		this.destination = destination;
-		this.reservations = reservations;
 		this.prestations = prestations;
 		this.numeroVoyage = this.idVoyage;
 	}
@@ -61,12 +53,12 @@ public class Voyage implements Serializable {
 		this.numeroVoyage = numeroVoyage;
 	}
 
-	public Statut getStatut() {
-		return statut;
+	public boolean getStatut() {
+		return disponible;
 	}
 
-	public void setStatut(Statut statut) {
-		this.statut = statut;
+	public void setStatut(boolean statut) {
+		this.disponible = statut;
 	}
 
 	public double getPrix() {
@@ -92,6 +84,10 @@ public class Voyage implements Serializable {
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
+	
+	public void addReservations(Reservation reservation) {
+		this.reservations.add(reservation);
+	}
 
 	public List<Prestation> getPrestations() {
 		return prestations;
@@ -99,6 +95,10 @@ public class Voyage implements Serializable {
 
 	public void setPrestations(List<Prestation> prestations) {
 		this.prestations = prestations;
+	}
+	
+	public void addPrestations(Prestation prestation) {
+		this.prestations.add(prestation);
 	}
 	
 	

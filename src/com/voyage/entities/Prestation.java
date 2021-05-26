@@ -20,42 +20,40 @@ import javax.persistence.Table;
 @DiscriminatorColumn(name="Presta_Type")
 public abstract class Prestation implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5284310376353843642L;
+	private static final long serialVersionUID = 2789566000296880107L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Date dateDepart;
-	private Date dateArrivee;
+	private long idPrestation;
+	private String dateDepart;
+	private String dateArrivee;
 	private double prixHT;
 	@ManyToOne
-	@JoinColumn(name="code-voyage")
+	@JoinColumn(name="idVoyage")
 	private Voyage voyage;
 	
-	public Prestation(Date dateDepart, Date dateArrivee, double prixHT, Voyage voyage) {
+	public Prestation(String dateDepart, String dateArrivee, double prixHT) {
 		this.dateDepart = dateDepart;
 		this.dateArrivee = dateArrivee;
 		this.prixHT = prixHT;
-		this.voyage = voyage;
 	}
 	
 	public Prestation() {
 	}
 
-	public Date getDateDepart() {
+	public String getDateDepart() {
 		return dateDepart;
 	}
 
-	public void setDateDepart(Date dateDepart) {
+	public void setDateDepart(String dateDepart) {
 		this.dateDepart = dateDepart;
 	}
 
-	public Date getDateArrivee() {
+	public String getDateArrivee() {
 		return dateArrivee;
 	}
 
-	public void setDateArrivee(Date dateArrivee) {
+	public void setDateArrivee(String dateArrivee) {
 		this.dateArrivee = dateArrivee;
 	}
 

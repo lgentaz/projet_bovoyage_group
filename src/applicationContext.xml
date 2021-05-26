@@ -25,10 +25,12 @@
 	<property  name="nom" value="Wayne"/>
 	<property  name="prenom" value="Bruce"/>
 	<property  name="email" value="bwayne@wayne.gc"/>
-	<property name="myAdresse"> <ref bean="adresse1"/></property>
+	<property name="adresse"> <ref bean="adresse1"/></property>
 	<property  name="pieceIdentite" value="987653"/>
 	<property  name="age" value="38"/>
 </bean>
+
+<bean id="adao" class="com.voyage.daos.DAOAdresse"/>
 
 <bean id="adresse1" class="com.voyage.entities.Adresse">
 	<property name="rue" value="Wayne Manor"/>
@@ -37,24 +39,52 @@
 	<property name="pays" value="USA"/>
 </bean>
 
+<bean id="rdao" class="com.voyage.daos.DAOReservation"/>
+
 <bean id="reservation1" class="com.voyage.entities.Reservation">
-	<property name="prixTotal" value="499.99"/>
-	<property name="client"><ref bean="client1"/></property>
-	<property name="voyage"><ref bean="voyage1"/></property>
 	<property name="listeVoyageur">
 	    <list>
 	    	<ref bean="voyageur1"/>
 	    </list>
   </property>
+  	<property name="prixTotal" value="499"/>
+	<property name="client"><ref bean="client1"/></property>
+	<property name="voyage"><ref bean="voyage1"/></property>
+
 </bean>
 
-<bean id="client1" class="com.voyage.entities.Voyageur">
+<bean id="cdao" class="com.voyage.daos.DAOClient"/>
+
+<bean id="client1" class="com.voyage.entities.Client">
 	<property name="civilite" value="Monsieur"/>
 	<property  name="nom" value="Wayne"/>
 	<property  name="prenom" value="Bruce"/>
 	<property  name="email" value="bwayne@wayne.gc"/>
-	<property name="myAdresse"> <ref bean="adresse1"/></property>
+	<property name="adresse"> <ref bean="adresse1"/></property>
+	<property name="reservation"><ref bean="reservation1"/></property>
 	<property  name="moyenPaiement" value="CB"/>
+</bean>
+
+<bean id="vvdao" class="com.voyage.daos.DAOVoyage"/>
+
+<bean id="voyage1" class="com.voyage.entities.Voyage">
+	<property name="prix" value="499"/>
+	<property name="destination" value="Italie"/>
+	<property name="prestations">
+	    <list>
+	    	<ref bean="prestation1"/>
+	    </list>
+  </property>
+</bean>
+
+<bean id="pdao" class="com.voyage.daos.DAOPrestation"/>
+
+<bean id="prestation1" class="com.voyage.entities.Avion">
+	<property name="dateDepart" value="15/07/2021"/>
+	<property name="dateArrivee" value="28/07/2021"/>
+	<property name="prixHT" value="499"/>
+	<property name="aeroport" value="RKV"/>
+	<property name="compagnie" value="VikingAir"/>
 </bean>
 
 </beans>
